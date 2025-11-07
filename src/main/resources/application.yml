@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: telegram-bot-load-tester
+
+# Конфигурация для Telegram Bot
+telegram:
+  bot:
+    # URL вашего бота (замените на реальный)
+    url: "https://api.telegram.org/bot7706932924:AAHAvYUznQxblQiyiKk9XvbRgAmyvlmh43k"
+    # Таймаут соединения в секундах
+    connection-timeout: 10
+    # Таймаут чтения в секундах
+    read-timeout: 30
+
+# Настройки нагрузочного тестирования по умолчанию
+load-test:
+  default:
+    # Количество потоков
+    thread-count: 10
+    # Количество запросов на поток
+    requests-per-thread: 100
+    # Задержка между запросами в миллисекундах
+    delay-between-requests: 100
+    # Максимальное время ожидания выполнения всех тестов (в минутах)
+    max-execution-time: 30
+
+# Настройки логирования
+logging:
+  level:
+    root: INFO
+    com.loadtest.telegrambot: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+

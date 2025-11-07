@@ -1,0 +1,89 @@
+### Файл с примерами HTTP запросов для IntelliJ IDEA REST Client или VS Code REST Client
+
+### 1. Проверка здоровья сервиса
+GET http://localhost:8080/api/load-test/health
+
+###
+
+### 2. Запуск простого теста (минимальная нагрузка)
+POST http://localhost:8080/api/load-test/start
+Content-Type: application/json
+
+{
+  "chatId": "YOUR_CHAT_ID",
+  "messageText": "Простой тест",
+  "threadCount": 5,
+  "requestsPerThread": 20,
+  "delayBetweenRequests": 200
+}
+
+###
+
+### 3. Запуск интенсивного теста (высокая нагрузка)
+POST http://localhost:8080/api/load-test/start
+Content-Type: application/json
+
+{
+  "chatId": "YOUR_CHAT_ID",
+  "messageText": "Интенсивный тест",
+  "threadCount": 50,
+  "requestsPerThread": 100,
+  "delayBetweenRequests": 50
+}
+
+###
+
+### 4. Получение результата теста (замените TEST_ID на реальный ID)
+GET http://localhost:8080/api/load-test/550e8400-e29b-41d4-a716-446655440000
+
+###
+
+### 5. Получение всех тестов
+GET http://localhost:8080/api/load-test/all
+
+###
+
+### 6. Остановка теста (замените TEST_ID на реальный ID)
+POST http://localhost:8080/api/load-test/550e8400-e29b-41d4-a716-446655440000/stop
+
+###
+
+### 7. Тест с пользовательским URL бота
+POST http://localhost:8080/api/load-test/start
+Content-Type: application/json
+
+{
+  "chatId": "YOUR_CHAT_ID",
+  "messageText": "Тест с кастомным URL",
+  "threadCount": 10,
+  "requestsPerThread": 50,
+  "delayBetweenRequests": 100,
+  "botUrl": "https://api.telegram.org/botYOUR_BOT_TOKEN"
+}
+
+###
+
+### 8. Медленный тест с большой задержкой
+POST http://localhost:8080/api/load-test/start
+Content-Type: application/json
+
+{
+  "chatId": "YOUR_CHAT_ID",
+  "messageText": "Медленный тест",
+  "threadCount": 3,
+  "requestsPerThread": 30,
+  "delayBetweenRequests": 1000
+}
+
+###
+
+### 9. Проверка Actuator health
+GET http://localhost:8080/actuator/health
+
+###
+
+### 10. Проверка Actuator metrics
+GET http://localhost:8080/actuator/metrics
+
+###
+

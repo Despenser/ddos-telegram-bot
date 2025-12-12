@@ -9,7 +9,7 @@ spring:
 telegram:
   bot:
     # URL вашего бота (замените на реальный)
-    url: "https://api.telegram.org/bot7706932924:AAHAvYUznQxblQiyiKk9XvbRgAmyvlmh43k"
+    url: "https://api.telegram.org/bot8806932924:AAHAvYUznQxblQiyiKk9XvbRgAmyvlmh43k"
     # Таймаут соединения в секундах
     connection-timeout: 10
     # Таймаут чтения в секундах
